@@ -93,12 +93,5 @@ export const query = graphql`
         }
       }
     }
-    severeWeather: file(relativePath: { eq: "severeWeather.png" }) {
-      childImageSharp {
-        fixed(width: 400, height: 400) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
   }
 `

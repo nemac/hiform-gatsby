@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: "/hiform-gatsby",
   siteMetadata: {
     author: `jbliss, dmichelson`,
-    githubRepo: "https://github.com/nemac/hiform-gatsby",
+    githubRepo: `https://github.com/nemac/hiform-gatsby`,
     description: `High-resolution forest mapping`,
     title: `HiForm`,
   },
@@ -38,6 +38,7 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-relative-images`,
+            resolve: `gatsby-plugin-netlify-cms-paths`,
           },
           {
             resolve: `gatsby-remark-images`,
@@ -48,10 +49,17 @@ module.exports = {
               linkImagesToOriginal: true,
             },
           },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
+            },
+          },
           
         ],
       },
     },
+    `gatsby-plugin-netlify-cms-paths`,
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-offline',
     `gatsby-transformer-sharp`,

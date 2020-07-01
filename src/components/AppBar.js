@@ -12,6 +12,8 @@ import Box from '@material-ui/core/Box';
 import Img from "gatsby-image"
 import customTheme from '../theme'
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const useStyles = makeStyles((theme) => ({
   hiformLogo: {
@@ -32,29 +34,29 @@ export default function ButtonAppBar() {
         }
         hiform: file(relativePath: { eq: "logo-hiform.png" }) {
           childImageSharp {
-            fixed(width: 250, height: 125) {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
         nemac: file(relativePath: { eq: "nemac_logo.png" }) {
           childImageSharp {
-            fixed(width: 50, height: 50) {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
         forestService: file(relativePath: { eq: "FS_logo.png" }) {
           childImageSharp {
-            fixed(width: 50, height: 50) {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
         usda: file(relativePath: { eq: "USDA_logo.png" }) {
           childImageSharp {
-            fixed(width: 75, height: 50) {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -67,21 +69,31 @@ export default function ButtonAppBar() {
   return (
     <Box ml={10} mr={10} mt={2}>
       <ThemeProvider theme={customTheme}>
-        <Toolbar m={10}>
-          <Typography className={classes.hiformLogo}>
-            <Link to='/'>
-              <Img fixed={data.hiform.childImageSharp.fixed}/>
-            </Link>
-          </Typography>
-          <Button href="https://www.usda.gov/" color='inherit'>
-            <Img fixed={data.usda.childImageSharp.fixed}/>
-          </Button>
-          <Button href="https://www.fs.fed.us/" color='inherit'>
-            <Img fixed={data.forestService.childImageSharp.fixed}/>
-          </Button>
-          <Button href="https://nemac.unca.edu/" color='inherit'>
-            <Img fixed={data.nemac.childImageSharp.fixed}/>
-          </Button>
+        <Toolbar>
+          <Grid
+            container
+            justify="space-around"
+            spacing={3}
+          >
+            <Grid item sm={2} xs={12}>
+              <Link to='/'>
+                <Img fluid={data.hiform.childImageSharp.fluid}/>
+              </Link>
+            </Grid>
+            <Grid item sm={1} xs={12}>
+              <ButtonGroup variant="text">
+              <a href="https://www.usda.gov/" color='inherit'>
+                <Img fluid={data.usda.childImageSharp.fluid}/>
+              </a>
+              <a href="https://www.fs.fed.us/" color='inherit'>
+                <Img fluid={data.forestService.childImageSharp.fluid}/>
+              </a>
+              <a href="https://nemac.unca.edu/" color='inherit'>
+                <Img fluid={data.nemac.childImageSharp.fluid}/>
+              </a>
+              </ButtonGroup>
+            </Grid>
+          </Grid>
         </Toolbar>
       </ThemeProvider>
       <Divider/>
