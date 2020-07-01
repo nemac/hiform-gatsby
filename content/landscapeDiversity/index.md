@@ -1,0 +1,6 @@
+---
+title: Landscape Diversity
+description: This markdown generates content for the landscape diversity page
+---
+
+Appalachian forest structure has always been harder to systematically map than has its composition, though they can be related, depending on the forest type classification used. In harvested areas, forest structure suggests how the stand has recovered, with critical insights derived from simple tree height—a measure which is readily obtainable from above-ground LiDAR wherever it is available. Lower canopy and understory vegetation is also critical in the Appalachians for understanding fuels and fire hazards, regeneration and plant and wildlife habitat, yet this is harder to accurately map so it is usually ignored. Adding further to the mapping problem, mixed ownership contributes to variable accuracy and inconsistent measures, and a tendency for some areas to become more out of date than others from development, logging or fire. This research explores ways to provide cross jurisdictional maps of forest structure and related composition that relate to specific forest manager concerns.
