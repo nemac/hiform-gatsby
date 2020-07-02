@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Card from '../components/card'
@@ -9,13 +10,21 @@ import Img from "gatsby-image"
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 
-function indexTemplate(props) {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
+
+function IndexTemplate(props) {
+  const classes = useStyles();
   const page = props.data.markdownRemark
   return (
     <Layout>
       <Grid
         container
         justify="center"
+        className={classes.root}
         spacing={3}
       >
         <Img fixed={page.frontmatter.image.childImageSharp.fixed}/>
@@ -40,7 +49,8 @@ function indexTemplate(props) {
       <Grid
         container
         justify="center"
-        spacing={3}
+        className={classes.root}
+        spacing={2}
       >
         <Grid item sm={3} xs={12}>
           <Link to='/severeWeather'>
@@ -79,7 +89,7 @@ function indexTemplate(props) {
   )
 }
 
-export default indexTemplate
+export default IndexTemplate
 
 export const pageQuery = graphql`
   query indexQuery ($slug: String!) {

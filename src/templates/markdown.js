@@ -8,8 +8,8 @@ function faqTemplate(props) {
   const page = props.data.markdownRemark
   return (
     <Layout>
-      <Box ml={40} mr={40} mt={2}>
-        <Typography variant="h3">
+      <Box mx="auto" p={1}>
+        <Typography variant="h3" align="center">
           {page.frontmatter.title}
         </Typography>
         <Typography>

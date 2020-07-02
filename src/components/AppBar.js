@@ -1,21 +1,18 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import { 
-  makeStyles,
-} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Link from '../components/Link';
-import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Img from "gatsby-image"
 import customTheme from '../theme'
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import AppBar from '@material-ui/core/AppBar';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
   hiformLogo: {
     flexGrow: 1,
   },
@@ -34,29 +31,29 @@ export default function ButtonAppBar() {
         }
         hiform: file(relativePath: { eq: "logo-hiform.png" }) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed (width: 160) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
         nemac: file(relativePath: { eq: "nemac_logo.png" }) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed (width: 80) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
         forestService: file(relativePath: { eq: "FS_logo.png" }) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed (width: 80) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
         usda: file(relativePath: { eq: "USDA_logo.png" }) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fixed (width: 80) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -67,36 +64,25 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <Box ml={10} mr={10} mt={2}>
-      <ThemeProvider theme={customTheme}>
-        <Toolbar>
-          <Grid
-            container
-            justify="space-around"
-            spacing={3}
-          >
-            <Grid item sm={2} xs={12}>
-              <Link to='/'>
-                <Img fluid={data.hiform.childImageSharp.fluid}/>
-              </Link>
-            </Grid>
-            <Grid item sm={1} xs={12}>
-              <ButtonGroup variant="text">
-              <a href="https://www.usda.gov/" color='inherit'>
-                <Img fluid={data.usda.childImageSharp.fluid}/>
-              </a>
-              <a href="https://www.fs.fed.us/" color='inherit'>
-                <Img fluid={data.forestService.childImageSharp.fluid}/>
-              </a>
-              <a href="https://nemac.unca.edu/" color='inherit'>
-                <Img fluid={data.nemac.childImageSharp.fluid}/>
-              </a>
-              </ButtonGroup>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </ThemeProvider>
-      <Divider/>
-    </Box>
+    <ThemeProvider theme={customTheme}>
+      <AppBar color="inherit" className={classes.root} position="static">
+        <Box ml={10} mr={10}>
+          <Toolbar>
+            <Link to='/' className={classes.hiformLogo}>
+              <Img fixed={data.hiform.childImageSharp.fixed}/>
+            </Link>
+            <a href="https://www.usda.gov/" color='inherit'>
+               <Img fixed={data.usda.childImageSharp.fixed}/>
+            </a>
+            <a href="https://www.fs.fed.us/" color='inherit'>
+              <Img fixed={data.forestService.childImageSharp.fixed}/>
+            </a>
+            <a href="https://nemac.unca.edu/" color='inherit'>
+              <Img fixed={data.nemac.childImageSharp.fixed}/>
+            </a>
+          </Toolbar>
+        </Box>
+      </AppBar>
+    </ThemeProvider>
   )
 }
