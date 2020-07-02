@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
-function faqTemplate(props) {
+function markdownTemplate(props) {
   const page = props.data.markdownRemark
   return (
     <Layout>
@@ -20,10 +20,10 @@ function faqTemplate(props) {
   )
 }
 
-export default faqTemplate
+export default markdownTemplate
 
 export const pageQuery = graphql`
-  query faqQuery ($slug: String!) {
+  query markdownQuery ($slug: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
       id
       html

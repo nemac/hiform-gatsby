@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const frontPageTemplate = path.resolve(`./src/templates/index.js`)
+  const eventTemplate = path.resolve(`./src/templates/event.js`)
   const markdownTemplate = path.resolve(`./src/templates/markdown.js`)
   const result = await graphql(
     `
@@ -63,6 +64,18 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
         frontPage: allMarkdownRemark(filter: {fields: {slug: {regex: "/index/"}}}) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+        event: allMarkdownRemark(filter: {fields: {slug: {regex: "/event/"}}}) {
           edges {
             node {
               fields {
@@ -132,6 +145,17 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: node.fields.slug,
       component: markdownTemplate,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })
+
+  // Create all event pages.
+  result.data.event.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: eventTemplate,
       context: {
         slug: node.fields.slug,
       },
