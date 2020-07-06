@@ -19,7 +19,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Page", name: "page", widget: "string"}
+      - {label: "Page", name: "page", widget: "list", allow_add: false, default: ['severeWeather', 'wildlandFire']}
       - {label: "Description", name: "description", widget: "text"}
       - {label: Images, name: images, widget: list, field: { name: image, label: Image, widget: image }}
       - {label: "Body", name: "body", widget: "markdown"}
