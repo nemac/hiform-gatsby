@@ -21,7 +21,7 @@ function markdownTemplate(props) {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Link to={node.fields.slug}>
-              {title}
+              {title} {<br></br>}
             </Link>
           )
         })}
