@@ -14,7 +14,7 @@ public_folder: /img
 collections:
   - name: "events"
     label: "Events"
-    folder: "content/case-studies"
+    folder: "content/events"
     create: true
     slug: "{{slug}}"
     fields:
