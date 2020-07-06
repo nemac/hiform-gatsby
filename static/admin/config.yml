@@ -21,5 +21,5 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Page", name: "page", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Images", name: "images", widget: "image"}
+      - {label: Images, name: images, widget: list, field: { name: image, label: Image, widget: image }}
       - {label: "Body", name: "body", widget: "markdown"}
