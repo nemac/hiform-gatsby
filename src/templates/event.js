@@ -6,34 +6,59 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from "@material-ui/core/GridListTileBar";
 import Img from "gatsby-image"
 import Link from '../components/Link';
+import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
+import IconButton from "@material-ui/core/IconButton";
+import Dialog from "@material-ui/core/Dialog";
+import CloseIcon from "@material-ui/icons/Close";
+import Slide from "@material-ui/core/Slide";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
+    backgroundColor: theme.palette.background.paper
   },
   gridList: {
-    flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: 'translateZ(0)',
+    width: "auto",
+    height: "auto"
+  },
+  icon: {
+    color: "rgba(255, 255, 255, 0.54)"
+  },
+  appBar: {
+    position: "relative"
   },
   title: {
-    color: theme.palette.primary.light,
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
+    marginLeft: theme.spacing(2),
+    flex: 1
+  }
 }));
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function EventTemplate(props) {
   const classes = useStyles();
+  const [selectedTile, setSelectedTile] = React.useState(null);
+  const [value, setValue] = React.useState([]);
   const page = props.data.markdownRemark
+
+  const handleClickOpen = tile => {
+    setSelectedTile(tile);
+  };
+
+  const handleClose = () => {
+    setSelectedTile(null);
+  };
+
   return (
     <Layout>
       <Box mx="auto" p={1}>
@@ -44,15 +69,48 @@ function EventTemplate(props) {
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
         </Typography>
         <div className={classes.root}>
-          <GridList className={classes.gridList} cols={3.5}>
+          <GridList className={classes.gridList} cols={4}>
           {page.frontmatter.images.map((image) => (
-            <GridListTile key={image}>
-              <Link to={image.publicURL}>
-                <Img fixed={image.childImageSharp.fixed}/>
-              </Link>
+            <GridListTile key={image.name}>
+              <img src={image.publicURL} alt=""/>
+              <GridListTileBar
+                title={image.name}
+                actionIcon={
+                  <IconButton
+                    aria-label={`info about ${image.name}`}
+                    className={classes.icon}
+                    value={image.id}
+                    onClick={() => handleClickOpen(image)}
+                  >
+                    <ZoomOutMapIcon/>
+                  </IconButton>
+                }
+              />
             </GridListTile>
           ))}
           </GridList>
+          <Dialog
+              fullScreen
+              open={selectedTile !== null}
+              onClose={handleClose}
+              TransitionComponent={Transition}
+          >
+            <AppBar className={classes.appBar}>
+              <Toolbar>
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  onClick={handleClose}
+                  aria-label="close"
+                >
+                  <CloseIcon />
+                </IconButton>
+              </Toolbar>
+            </AppBar>
+            {selectedTile && (
+              <Img fluid={selectedTile.childImageSharp.fluid} />
+            )}
+          </Dialog>
         </div>
       </Box>
     </Layout>
@@ -70,11 +128,13 @@ export const pageQuery = graphql`
         title
         description
         images {
+          id
+          name
           publicURL
           relativePath
           childImageSharp {
-            fixed (width: 400) {
-              ...GatsbyImageSharpFixed
+            fluid (quality:100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

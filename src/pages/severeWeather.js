@@ -33,8 +33,8 @@ function markdownTemplate(props) {
 export default markdownTemplate
 
 export const pageQuery = graphql`
-  query markdownQuery ($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+  query severeWeatherQuery {
+    markdownRemark(fields: {slug: {eq: "/severeWeather/"}}) {
       id
       html
       frontmatter {
@@ -42,7 +42,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "/severeWeather/"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "severeWeather"}}}) {
       edges {
         node {
           fields {

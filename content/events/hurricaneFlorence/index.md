@@ -1,5 +1,6 @@
 ---
 title: Hurricane Florence
+page: severeWeather
 description: This markdown generates content for the Hurricane Florence page
 images: [florence1.PNG, florence2.PNG, florence3.PNG, florence4.PNG]
 ---

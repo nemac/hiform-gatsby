@@ -46,45 +46,47 @@ function IndexTemplate(props) {
       </Typography>
       <Divider/>
       <br></br>
-      <Grid
-        container
-        justify="center"
-        className={classes.root}
-        spacing={2}
-      >
-        <Grid item sm={3} xs={12}>
-          <Link to='/severeWeather'>
-            <Card
-              image={page.frontmatter.severeWeatherImage.publicURL}
-              content="Severe Weather"
-            />
-          </Link>
+      <Box mx={10}>
+        <Grid
+          container
+          justify="center"
+          className={classes.root}
+          spacing={4}
+        >
+          <Grid item sm={3} xs={12}>
+            <Link to='/severeWeather'>
+              <Card
+                image={page.frontmatter.severeWeatherImage.publicURL}
+                content="Severe Weather"
+              />
+            </Link>
+          </Grid>
+          <Grid item sm={3} xs={12}>
+            <Link to='/wildlandFire'>
+              <Card
+                image={page.frontmatter.wildlandFireImage.publicURL}
+                content="Wildland Fire"
+              />
+            </Link>
+          </Grid>
+          <Grid item sm={3} xs={12}>
+            <Link to='/insectsAndDiseases'>
+              <Card
+                image={page.frontmatter.insectsAndDiseasesImage.publicURL}
+                content="Insects and Diseases"
+              />
+            </Link>
+          </Grid>
+          <Grid item sm={3} xs={12}>
+            <Link to ="/landscapeDiversity">
+              <Card
+                image={page.frontmatter.landscapeDiversityImage.publicURL}
+                content="Landscape Diversity"
+              />
+            </Link>
+          </Grid>
         </Grid>
-        <Grid item sm={3} xs={12}>
-          <Link to='/wildlandFire'>
-            <Card
-              image={page.frontmatter.wildlandFireImage.publicURL}
-              content="Wildland Fire"
-            />
-          </Link>
-        </Grid>
-        <Grid item sm={3} xs={12}>
-          <Link to='/insectsAndDiseases'>
-            <Card
-              image={page.frontmatter.insectsAndDiseasesImage.publicURL}
-              content="Insects and Diseases"
-            />
-          </Link>
-        </Grid>
-        <Grid item sm={3} xs={12}>
-          <Link to ="/landscapeDiversity">
-            <Card
-              image={page.frontmatter.landscapeDiversityImage.publicURL}
-              content="Landscape Diversity"
-            />
-          </Link>
-        </Grid>
-      </Grid>
+      </Box>
     </Layout>
   )
 }

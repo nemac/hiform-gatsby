@@ -15,18 +15,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        severeWeather: allMarkdownRemark(filter: {fields: {slug: {eq: "/severeWeather/"}}}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
         wildlandFire: allMarkdownRemark(filter: {fields: {slug: {eq: "/wildlandFire/"}}}) {
           edges {
             node {
@@ -101,17 +89,6 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: '/',
       component: frontPageTemplate,
-      context: {
-        slug: node.fields.slug,
-      },
-    })
-  })
-
-  // Create severe weather page.
-  result.data.severeWeather.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: markdownTemplate,
       context: {
         slug: node.fields.slug,
       },
