@@ -5,14 +5,14 @@
   "version": "1.0.0",
   "author": "Jeff Bliss <jbliss@unca.edu>",
   "scripts": {
-    "build": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby clean && gatsby build && gatsby-plugin-s3 deploy"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "gatsby-plugin-offline": "^3.2.10",
     "gatsby-plugin-page-creator": "^2.3.8",
     "gatsby-plugin-react-helmet": "^3.1.24",
+    "gatsby-plugin-s3": "^0.3.3",
     "gatsby-plugin-sass": "^2.3.2",
     "gatsby-plugin-sharp": "^2.6.11",
     "gatsby-remark-copy-linked-files": "^2.3.9",

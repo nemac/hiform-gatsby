@@ -1,3 +1,4 @@
+const siteAddress = new URL("https://hiform-gatsby.nemac.org")
 module.exports = {
   pathPrefix: "/hiform-gatsby",
   siteMetadata: {
@@ -7,6 +8,14 @@ module.exports = {
     title: `HiForm`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "hiform-gatsby.nemac.org",
+        protocol: siteAddress.protocol.slice(0, -1),
+        hostname: siteAddress.hostname, 
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

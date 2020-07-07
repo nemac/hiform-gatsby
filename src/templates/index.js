@@ -30,12 +30,7 @@ function IndexTemplate(props) {
         <Img fixed={page.frontmatter.image.childImageSharp.fixed}/>
         <Grid item sm={6} xs={12}>
           <Typography>
-            {page.frontmatter.mainText}
-            <br></br><br></br>
-            {page.frontmatter.mainTextTwo}
-            <br></br><br></br>
-            {page.frontmatter.mainTextThree}
-            <br></br><br></br>
+            <div dangerouslySetInnerHTML={{ __html: page.html }} />
           </Typography>
         </Grid>
       </Grid>
@@ -96,7 +91,6 @@ export default IndexTemplate
 export const pageQuery = graphql`
   query indexQuery ($slug: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
-      id
       html
       frontmatter {
         title
@@ -120,9 +114,6 @@ export const pageQuery = graphql`
         landscapeDiversityImage {
           publicURL
         }
-        mainText
-        mainTextTwo
-        mainTextThree
       }
     }
   }
