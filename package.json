@@ -1,7 +1,7 @@
 {
-  "name": "southfact",
+  "name": "Hiform",
   "private": true,
-  "description": "Southern Forest Area Change Tools",
+  "description": "High-resolution forest mapping",
   "version": "1.0.0",
   "author": "Jeff Bliss <jbliss@unca.edu>",
   "scripts": {

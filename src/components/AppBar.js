@@ -66,7 +66,7 @@ export default function ButtonAppBar() {
   return (
     <ThemeProvider theme={customTheme}>
       <AppBar color="inherit" className={classes.root} position="static">
-        <Box ml={10} mr={10}>
+        <Box mx={5}>
           <Toolbar>
             <Link to='/' className={classes.hiformLogo}>
               <Img fixed={data.hiform.childImageSharp.fixed}/>
