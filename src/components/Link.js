@@ -4,7 +4,7 @@ import { Link as GatsbyLink } from 'gatsby';
 
 const Link = React.forwardRef(function Link(props, ref) {
   return (
-    <MuiLink color='inherit' component={GatsbyLink} ref={ref} underline='none' {...props} />
+    <MuiLink component={GatsbyLink} ref={ref} {...props} />
   )
 });
 
