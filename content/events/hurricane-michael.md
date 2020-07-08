@@ -1,6 +1,7 @@
 ---
 title: Hurricane Michael
 page: severeWeather
+type: Hurricanes
 description: This is what I added for Hurricane Michael through Netlify CMS
 images:
   - /img/slide1_2.png

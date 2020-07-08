@@ -6,8 +6,24 @@ module.exports = {
     githubRepo: `https://github.com/nemac/hiform-gatsby`,
     description: `High-resolution forest mapping`,
     title: `HiForm`,
+    siteUrl: "http://localhost:8000",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        defaultCrumb: {
+          // location: required and must include the pathname property
+          location: {
+            pathname: "/",
+          },
+          // crumbLabel: required label for the default crumb
+          crumbLabel: "Home",
+          // all other properties optional
+          crumbSeparator: " / ",
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-s3`,
       options: {
@@ -68,7 +84,6 @@ module.exports = {
     },
     `gatsby-plugin-netlify-cms-paths`,
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-offline',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-material-ui`,

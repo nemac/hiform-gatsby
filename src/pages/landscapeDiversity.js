@@ -5,11 +5,14 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Link from '../components/Link';
 
+import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+
 function markdownTemplate(props) {
   const page = props.data.markdownRemark
   const events = props.data.allMarkdownRemark.edges
   return (
     <Layout>
+      <Breadcrumb location={props.location} crumbLabel="Landscape Diversity"/>
       <Box mx="auto" p={1}>
         <Typography variant="h3" align="center">
           {page.frontmatter.title}
@@ -21,7 +24,7 @@ function markdownTemplate(props) {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Link to={node.fields.slug}>
-              {title}
+              {title} {<br></br>}
             </Link>
           )
         })}
@@ -33,8 +36,8 @@ function markdownTemplate(props) {
 export default markdownTemplate
 
 export const pageQuery = graphql`
-  query markdownQuery ($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+  query landscapeDiversityQuery {
+    markdownRemark(fields: {slug: {eq: "/landscapeDiversity/"}}) {
       id
       html
       frontmatter {
@@ -42,7 +45,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "/severeWeather/"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "landscapeDiversity"}}}) {
       edges {
         node {
           fields {
@@ -50,6 +53,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            type
           }
         }
       }

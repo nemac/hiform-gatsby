@@ -5,6 +5,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Lightbox from '../components/Lightbox'
 
+import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+
 function EventTemplate(props) {
   const page = props.data.markdownRemark
   let images = []
@@ -18,6 +20,7 @@ function EventTemplate(props) {
 
   return (
     <Layout>
+      <Breadcrumb location={props.location} crumbLabel={page.frontmatter.title}/>
       <Box mx="auto" p={1}>
         <Typography variant="h3" align="center">
           {page.frontmatter.title}
@@ -25,7 +28,7 @@ function EventTemplate(props) {
         <Typography>
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
         </Typography>
-        <Lightbox images={page.frontmatter.images} />
+        <Lightbox images={page.frontmatter.images}/>
       </Box>
     </Layout>
   )

@@ -11,46 +11,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const frontPageTemplate = path.resolve(`./src/templates/index.js`)
   const eventTemplate = path.resolve(`./src/templates/event.js`)
-  const markdownTemplate = path.resolve(`./src/templates/markdown.js`)
   const result = await graphql(
     `
       {
-        wildlandFire: allMarkdownRemark(filter: {fields: {slug: {eq: "/wildlandFire/"}}}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
-        insectsAndDiseases: allMarkdownRemark(filter: {fields: {slug: {regex: "/insectsAndDiseases/"}}}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
-        landscapeDiversity: allMarkdownRemark(filter: {fields: {slug: {regex: "/landscapeDiversity/"}}}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
         frontPage: allMarkdownRemark(filter: {fields: {slug: {regex: "/index/"}}}) {
           edges {
             node {
@@ -89,39 +52,6 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: '/',
       component: frontPageTemplate,
-      context: {
-        slug: node.fields.slug,
-      },
-    })
-  })
-
-  // Create wildland fire page.
-  result.data.wildlandFire.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: markdownTemplate,
-      context: {
-        slug: node.fields.slug,
-      },
-    })
-  })
-
-  // Create insects and diseases pages.
-  result.data.insectsAndDiseases.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: markdownTemplate,
-      context: {
-        slug: node.fields.slug,
-      },
-    })
-  })
-
-  // Create landscape diversity pages.
-  result.data.landscapeDiversity.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: markdownTemplate,
       context: {
         slug: node.fields.slug,
       },

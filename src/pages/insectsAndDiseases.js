@@ -12,7 +12,7 @@ function markdownTemplate(props) {
   const events = props.data.allMarkdownRemark.edges
   return (
     <Layout>
-      <Breadcrumb location={props.location} crumbLabel="Severe Weather"/>
+      <Breadcrumb location={props.location} crumbLabel="Insects and Diseases"/>
       <Box mx="auto" p={1}>
         <Typography variant="h3" align="center">
           {page.frontmatter.title}
@@ -36,8 +36,8 @@ function markdownTemplate(props) {
 export default markdownTemplate
 
 export const pageQuery = graphql`
-  query severeWeatherQuery {
-    markdownRemark(fields: {slug: {eq: "/severeWeather/"}}) {
+  query insectsAndDiseasesQuery {
+    markdownRemark(fields: {slug: {eq: "/insectsAndDiseases/"}}) {
       id
       html
       frontmatter {
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "severeWeather"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "insectsAndDiseases"}}}) {
       edges {
         node {
           fields {

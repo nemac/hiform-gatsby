@@ -10,17 +10,21 @@ import Img from "gatsby-image"
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 
+import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
 }));
 
-function IndexTemplate(props) {
+function IndexTemplate (props) {
   const classes = useStyles();
   const page = props.data.markdownRemark
   return (
     <Layout>
+      <Breadcrumb location={props.location} crumbLabel="Home"/>
+      <br></br>
       <Grid
         container
         justify="center"
