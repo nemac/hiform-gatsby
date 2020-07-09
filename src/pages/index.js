@@ -9,8 +9,9 @@ import Layout from "../components/layout"
 import Img from "gatsby-image"
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
+import Breadcrumb from "../components/Breadcrumb"
 
-import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+//import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function IndexTemplate (props) {
+function IndexPage (props) {
   const classes = useStyles();
   const page = props.data.markdownRemark
   return (
@@ -90,11 +91,11 @@ function IndexTemplate (props) {
   )
 }
 
-export default IndexTemplate
+export default IndexPage
 
-export const pageQuery = graphql`
-  query indexQuery ($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+export const indexPageQuery = graphql`
+  query indexQuery {
+    markdownRemark(fields: {slug: {eq: "/index/"}}) {
       html
       frontmatter {
         title

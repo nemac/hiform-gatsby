@@ -20,7 +20,7 @@ module.exports = {
           // crumbLabel: required label for the default crumb
           crumbLabel: "Home",
           // all other properties optional
-          crumbSeparator: " / ",
+          crumbSeparator: " > ",
         },
       },
     },

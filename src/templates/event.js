@@ -4,8 +4,9 @@ import Layout from "../components/layout"
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Lightbox from '../components/Lightbox'
+import Breadcrumb from "../components/Breadcrumb"
 
-import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+//import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 function EventTemplate(props) {
   const page = props.data.markdownRemark

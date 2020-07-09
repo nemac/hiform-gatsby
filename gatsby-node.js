@@ -14,18 +14,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        frontPage: allMarkdownRemark(filter: {fields: {slug: {regex: "/index/"}}}) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
         event: allMarkdownRemark(filter: {fields: {slug: {regex: "/event/"}}}) {
           edges {
             node {
@@ -46,17 +34,6 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw result.errors
   }
-
-  // Create front page.
-  result.data.frontPage.edges.forEach(({ node }) => {
-    createPage({
-      path: '/',
-      component: frontPageTemplate,
-      context: {
-        slug: node.fields.slug,
-      },
-    })
-  })
 
   // Create all event pages.
   result.data.event.edges.forEach(({ node }) => {
