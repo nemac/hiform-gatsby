@@ -53,7 +53,7 @@ function IndexPage (props) {
           className={classes.root}
           spacing={4}
         >
-          <Grid item md={3} sm={12}>
+          <Grid item md={4} sm={12}>
             <Link to='/severeWeather'>
               <Card
                 image={page.frontmatter.severeWeatherImage.publicURL}
@@ -61,7 +61,7 @@ function IndexPage (props) {
               />
             </Link>
           </Grid>
-          <Grid item md={3} sm={12}>
+          <Grid item md={4} sm={12}>
             <Link to='/wildlandFire'>
               <Card
                 image={page.frontmatter.wildlandFireImage.publicURL}
@@ -69,7 +69,7 @@ function IndexPage (props) {
               />
             </Link>
           </Grid>
-          <Grid item md={3} sm={12}>
+          <Grid item md={4} sm={12}>
             <Link to='/insectsAndDiseases'>
               <Card
                 image={page.frontmatter.insectsAndDiseasesImage.publicURL}
@@ -77,7 +77,7 @@ function IndexPage (props) {
               />
             </Link>
           </Grid>
-          <Grid item md={3} sm={12}>
+          <Grid item md={4} sm={12}>
             <Link to ="/landscapeDiversity">
               <Card
                 image={page.frontmatter.landscapeDiversityImage.publicURL}
