@@ -15,12 +15,19 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   hiformLogo: {
+    height: '100%',
+    width: '100%',
   },
   partnerLink: {
     padding: theme.spacing(2),
     height: '100%',
     width: '100%',
   },
+  centerXS: {
+    [theme.breakpoints.down("xs")]: {
+      textAlign: 'center',
+    }
+  }
 }));
 
 export default function ButtonAppBar() {
@@ -74,12 +81,12 @@ export default function ButtonAppBar() {
         <Box mx={10} py={1}>
           <Toolbar>
             <Grid container xs={12}>
-              <Grid item xs={12} sm={8} >
+              <Grid className={classes.centerXS} item xs={12} sm={7} md={8} lg={9} >
                 <Link to='/' className={classes.hiformLogo}>
                   <Img fixed={data.hiform.childImageSharp.fixed}/>
                 </Link>
               </Grid>
-               <Grid alignItems='center' justify='center' container wrap="nowrap" xs={12} sm={4} >
+               <Grid alignItems='center' justify='center' container wrap="nowrap" xs={12} sm={5} md={4}  lg={3} >
                  <Grid item xs={4}>
                    <a className={classes.partnerLink} href="https://www.usda.gov/" color='inherit'>
                       <Img fixed={data.usda.childImageSharp.fixed}/>
