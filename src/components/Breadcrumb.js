@@ -16,14 +16,12 @@ const useStyles = makeStyles((theme) => ({
 
 function handleClick(event) {
   event.preventDefault();
-  console.info('You clicked a breadcrumb.');
 }
 
 
 const Breadcrumb = React.forwardRef(function Breadcrumb(props, ref) {
   const classes = useStyles();
   const pathnames = props.location.pathname.split('/').filter(x => x);
-  console.log(pathnames)
   return (
     <div className={classes.root}>
       <MuiBreadcrumbs separator="›" aria-label="breadcrumb">
