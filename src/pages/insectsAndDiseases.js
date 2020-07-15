@@ -46,7 +46,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}, frontmatter: {page: {eq: "insectsAndDiseases"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/insectsAndDiseases/"}}, frontmatter: {page: {eq: "insectsAndDiseases"}}}) {
       edges {
         node {
           fields {

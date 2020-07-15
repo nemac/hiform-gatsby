@@ -14,7 +14,43 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        event: allMarkdownRemark(filter: {fields: {slug: {regex: "/event/"}}}) {
+        severeWeather: allMarkdownRemark(filter: {fields: {slug: {regex: "/severeWeather/"}}}) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+        insectsAndDiseases: allMarkdownRemark(filter: {fields: {slug: {regex: "/insectsAndDiseases/"}}}) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+        wildlandFire: allMarkdownRemark(filter: {fields: {slug: {regex: "/wildlandFire/"}}}) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+        landscapeDiversity: allMarkdownRemark(filter: {fields: {slug: {regex: "/landscapeDiversity/"}}}) {
           edges {
             node {
               fields {
@@ -35,8 +71,41 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create all event pages.
-  result.data.event.edges.forEach(({ node }) => {
+  // Create severeWeather event pages.
+  result.data.severeWeather.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: eventTemplate,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })
+
+  // Create wildlandFire event pages.
+  result.data.wildlandFire.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: eventTemplate,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })
+
+  // Create landscapeDiversity event pages.
+  result.data.landscapeDiversity.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: eventTemplate,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })
+
+  // Create insectsAndDiseases event pages.
+  result.data.insectsAndDiseases.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: eventTemplate,
