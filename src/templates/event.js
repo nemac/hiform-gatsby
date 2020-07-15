@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function EventTemplate(props) {
+const  EventTemplate = (props) => {
   const classes = useStyles();
   const page = props.data.markdownRemark
   const images = page.frontmatter.images.map((node) => node.childImageSharp)
