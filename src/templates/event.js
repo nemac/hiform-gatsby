@@ -5,10 +5,21 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Lightbox from '../components/Lightbox'
 import Breadcrumb from "../components/Breadcrumb"
+import { makeStyles } from '@material-ui/core/styles';
 
 //import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+const useStyles = makeStyles((theme) => ({
+  bodyText: {
+    fontSize: "1rem",
+    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+    fontWeight: 400,
+    lineHeight: 1.5,
+    letterSpacing: "0.00938em"
+  }
+}))
 
 function EventTemplate(props) {
+  const classes = useStyles();
   const page = props.data.markdownRemark
   let images = []
   page.frontmatter.images.map((image) => (
@@ -18,17 +29,16 @@ function EventTemplate(props) {
       height: 100
     })
   ))
+  console.log(page.frontmatter.images.childImageSharp)
 
   return (
     <Layout>
       <Breadcrumb location={props.location} crumbLabel={page.frontmatter.title}/>
-      <Box mx="auto" p={1}>
+      <Box mx="auto" p={1} fontSize="h3.fontSize">
         <Typography variant="h3" align="center">
           {page.frontmatter.title}
         </Typography>
-        <Typography>
-          <div dangerouslySetInnerHTML={{ __html: page.html }} />
-        </Typography>
+        <div  className={classes.bodyText}  dangerouslySetInnerHTML={{ __html: page.html }} />
         <Lightbox images={page.frontmatter.images}/>
       </Box>
     </Layout>
