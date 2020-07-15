@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiBreadcrumbs from '@material-ui/core/Breadcrumbs';
-import Link from '@material-ui/core/Link';
+import Link from './Link';
 import Typography from '@material-ui/core/Typography';
 
 // import { Breadcrumb as GatsbyBreadcrumb } from "gatsby-plugin-breadcrumb";
@@ -27,7 +27,7 @@ const Breadcrumb = React.forwardRef(function Breadcrumb(props, ref) {
   return (
     <div className={classes.root}>
       <MuiBreadcrumbs separator="›" aria-label="breadcrumb">
-        <Link color="inherit" href="/" >
+        <Link color="inherit" to="/" >
           Home
         </Link>
         {pathnames.map((value, index) => {
@@ -61,9 +61,8 @@ const Breadcrumb = React.forwardRef(function Breadcrumb(props, ref) {
               ) : (
                   <Link
                       color="inherit"
-                      to={to}
                       key={to}
-                      href={"/" + path}
+                      to={"/" + path}
                   >
                       {path}
                   </Link>
