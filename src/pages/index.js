@@ -17,6 +17,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  bodyText: {
+    fontSize: "1rem",
+    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+    fontWeight: 400,
+    lineHeight: 1.5,
+    letterSpacing: "0.00938em"
+  },
+  projectHeader: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }
 }));
 
 function IndexPage (props) {
@@ -34,59 +45,59 @@ function IndexPage (props) {
       >
         <Img fixed={page.frontmatter.image.childImageSharp.fixed}/>
         <Grid item sm={6} xs={12}>
-          <Typography>
-            <div dangerouslySetInnerHTML={{ __html: page.html }} />
-          </Typography>
+            <div className={classes.bodyText} dangerouslySetInnerHTML={{ __html: page.html }} />
         </Grid>
       </Grid>
-      <Typography align="center">
-        <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">
-          Projects
-        </Box>
-      </Typography>
-      <Divider/>
-      <br></br>
-      <Box mx={10}>
-        <Grid
-          container
-          justify="center"
-          className={classes.root}
-          spacing={4}
-        >
-          <Grid item sm={3} xs={12}>
-            <Link to='/severeWeather'>
-              <Card
-                image={page.frontmatter.severeWeatherImage.publicURL}
-                content="Severe Weather"
-              />
-            </Link>
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <Link to='/wildlandFire'>
-              <Card
-                image={page.frontmatter.wildlandFireImage.publicURL}
-                content="Wildland Fire"
-              />
-            </Link>
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <Link to='/insectsAndDiseases'>
-              <Card
-                image={page.frontmatter.insectsAndDiseasesImage.publicURL}
-                content="Insects and Diseases"
-              />
-            </Link>
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <Link to ="/landscapeDiversity">
-              <Card
-                image={page.frontmatter.landscapeDiversityImage.publicURL}
-                content="Landscape Diversity"
-              />
-            </Link>
-          </Grid>
+      <Grid container justify="center" className={classes.root} >
+        <Grid item xs={12}>
+          <Box className={classes.projectHeader} fontSize="h6.fontSize" pt={4}>
+            Projects
+          </Box>
+          <Divider/>
+          <br></br>
+          <Box mx={10}>
+            <Grid
+              container
+              justify="center"
+              className={classes.root}
+              spacing={4}
+            >
+              <Grid item md={4} sm={12}>
+                <Link to='/severeWeather'>
+                  <Card
+                    image={page.frontmatter.severeWeatherImage.publicURL}
+                    content="Severe Weather"
+                  />
+                </Link>
+              </Grid>
+              <Grid item md={4} sm={12}>
+                <Link to='/wildlandFire'>
+                  <Card
+                    image={page.frontmatter.wildlandFireImage.publicURL}
+                    content="Wildland Fire"
+                  />
+                </Link>
+              </Grid>
+              <Grid item md={4} sm={12}>
+                <Link to='/insectsAndDiseases'>
+                  <Card
+                    image={page.frontmatter.insectsAndDiseasesImage.publicURL}
+                    content="Insects and Diseases"
+                  />
+                </Link>
+              </Grid>
+              <Grid item md={4} sm={12}>
+                <Link to ="/landscapeDiversity">
+                  <Card
+                    image={page.frontmatter.landscapeDiversityImage.publicURL}
+                    content="Landscape Diversity"
+                  />
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
         </Grid>
-      </Box>
+      </Grid>
     </Layout>
   )
 }

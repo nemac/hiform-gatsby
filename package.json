@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Jeff Bliss <jbliss@unca.edu>",
   "scripts": {
+    "eslint": "eslint ./src",
     "build": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "@blocks/kit": "0.0.28",
+    "@browniebroke/gatsby-image-gallery": "^3.4.0",
     "@emotion/core": "^10.0.28",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -63,6 +65,9 @@
     "unified-ui": "0.0.3"
   },
   "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
     "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
