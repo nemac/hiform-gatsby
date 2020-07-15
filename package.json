@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@blocks/kit": "0.0.28",
+    "@browniebroke/gatsby-image-gallery": "^3.4.0",
     "@emotion/core": "^10.0.28",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",

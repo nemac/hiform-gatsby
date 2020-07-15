@@ -80,13 +80,13 @@ export default function ButtonAppBar() {
       <AppBar color="inherit" className={classes.root} position="static">
         <Box mx={10} py={1}>
           <Toolbar>
-            <Grid container xs={12}>
+            <Grid container >
               <Grid className={classes.centerXS} item xs={12} sm={7} md={8} lg={9} >
                 <Link to='/' className={classes.hiformLogo}>
                   <Img fixed={data.hiform.childImageSharp.fixed}/>
                 </Link>
               </Grid>
-               <Grid alignItems='center' justify='center' container wrap="nowrap" xs={12} sm={5} md={4}  lg={3} >
+               <Grid alignItems='center' justify='center' container wrap="nowrap" item xs={12} sm={5} md={4}  lg={3} >
                  <Grid item xs={4}>
                    <a className={classes.partnerLink} href="https://www.usda.gov/" color='inherit'>
                       <Img fixed={data.usda.childImageSharp.fixed}/>
