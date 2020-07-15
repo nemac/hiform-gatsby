@@ -12,9 +12,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "events"
-    label: "Events"
-    folder: "content/events"
+  - name: "severeWeather"
+    label: "Severe Weather"
+    folder: "content/severeWeather"
     create: true
     slug: "{{slug}}"
     fields:
