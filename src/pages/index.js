@@ -50,9 +50,9 @@ function IndexPage (props) {
       </Grid>
       <Grid container justify="center" className={classes.root} >
         <Grid item xs={12}>
-            <Box className={classes.projectHeader} fontSize="h6.fontSize" pt={4}>
-              Projects
-            </Box>
+          <Box className={classes.projectHeader} fontSize="h6.fontSize" pt={4}>
+            Projects
+          </Box>
           <Divider/>
           <br></br>
           <Box mx={10}>
