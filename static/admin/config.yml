@@ -12,6 +12,50 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "staticContent"
+    label: "Static Content"
+    files:
+      - file: "content/index/index.md"
+        label: "Front Page"
+        name: "frontpage"
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Front Page Image', name: 'image', widget: 'image' }
+          - { label: 'Severe Weather Image', name: 'severeWeatherImage', widget: 'image' }
+          - { label: 'Wildland Fire Image', name: 'wildlandFireImage', widget: 'image' }
+          - { label: 'Insects and Diseases Image', name: 'insectsAndDiseasesImage', widget: 'image' }
+          - { label: 'Landscape Diversity Image', name: 'landscapeDiversityImage', widget: 'image' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - file: "content/severeWeather.md"
+        name: 'severeWeather'
+        label: 'Severe Weather'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - file: "content/wildlandFire.md"
+        name: 'wildlandFire'
+        label: 'Wildland Fire'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - file: "content/insectsAndDiseases.md"
+        name: 'insectsAndDiseases'
+        label: 'Insects and Diseases'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - file: "content/landscapeDiversity.md"
+        name: 'landscapeDiversity'
+        label: 'Landscape Diversity'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
   - name: "severeWeather"
     label: "Severe Weather"
     folder: "content/severeWeather"
