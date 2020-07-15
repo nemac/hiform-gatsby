@@ -1,6 +1,5 @@
 ---
 title: Spring 2020 Pine Beetles in Talladega National Forest AL 
-page: insectsAndDiseases
 type: Insect Mortality
 description: This markdown generates content for the Spring 2020 Pine Beetles in Talladega National Forest AL page
 images: [/img/smiley.png]

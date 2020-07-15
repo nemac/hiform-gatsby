@@ -1,6 +1,5 @@
 ---
 title: April 2020 Onalaska, TX Tornado
-page: severeWeather
 type: Tornadoes
 description: This markdown generates content for the April 2020 Onalaska, TX Tornado page
 images: [/img/smiley.png]

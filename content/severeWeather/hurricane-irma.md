@@ -1,6 +1,5 @@
 ---
 title: Hurricane Irma
-page: severeWeather
 type: Hurricanes
 description: This markdown generates content for the Hurricane Irma page
 images: [/img/smiley.png]

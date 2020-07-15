@@ -1,6 +1,5 @@
 ---
 title: Hurricane Maria
-page: severeWeather
 type: Hurricanes
 description: This markdown generates content for the Hurricane Maria page
 images: [/img/smiley.png]

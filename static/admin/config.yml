@@ -19,7 +19,39 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Page", name: "page", widget: "select", options: ['severeWeather', 'wildlandFire', 'insectsAndDiseaes', "landscapeDiversity"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: Images, name: images, widget: list, field: { name: image, label: Image, widget: image }}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "wildlandFire"
+    label: "Wildland Fire"
+    folder: "content/wildlandFire"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: Images, name: images, widget: list, field: { name: image, label: Image, widget: image }}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "insectsAndDiseases"
+    label: "Insects and Diseases"
+    folder: "content/insectsAndDiseases"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: Images, name: images, widget: list, field: { name: image, label: Image, widget: image }}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "landscapeDiversity"
+    label: "Landscape Diversity"
+    folder: "content/landscapeDiversity"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: Images, name: images, widget: list, field: { name: image, label: Image, widget: image }}
       - {label: "Body", name: "body", widget: "markdown"}

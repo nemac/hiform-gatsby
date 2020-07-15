@@ -1,6 +1,5 @@
 ---
 title: Growing Season Fire Severity
-page: wildlandFire
 type: 2016 Southern Appalachian Wildfires
 description: This markdown generates content for the Growing Season Fire Severity page
 images: [/img/smiley.png]

@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/wildlandFire/"}}, frontmatter: {page: {eq: "wildlandFire"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/wildlandFire/"}}}) {
       edges {
         node {
           fields {
