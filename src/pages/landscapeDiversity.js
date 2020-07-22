@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/events/"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/^/landscapeDiversity/[a-zA-Z0-9]+/"}}}) {
       edges {
         node {
           fields {

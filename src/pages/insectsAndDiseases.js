@@ -3,14 +3,13 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Link from '../components/Link';
 import Breadcrumb from "../components/Breadcrumb"
 
 //import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   bodyText: {
     fontSize: "1rem",
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   projectHeader: {
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   }
 }));
 
@@ -45,14 +44,14 @@ function markdownTemplate(props) {
             <Link key={node.fields.slug} to={node.fields.slug}>
               {title} {<br></br>}
             </Link>
-          )
+          );
         })}
       </Box>
     </Layout>
-  )
+  );
 }
 
-export default markdownTemplate
+export default markdownTemplate;
 
 export const pageQuery = graphql`
   query insectsAndDiseasesQuery {
@@ -64,7 +63,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(filter: {fields: {slug: {regex: "/insectsAndDiseases/"}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: "/^/insectsAndDiseases/[a-zA-Z0-9]+/"}}}) {
       edges {
         node {
           fields {
